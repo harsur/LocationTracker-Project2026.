@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="LocationTracker.MainPage"
+    Title="Location Tracker">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="25"
+            Spacing="20"
+            VerticalOptions="Center">
+
+            <Label
+                Text="Location Tracker"
+                FontSize="28"
+                FontAttributes="Bold"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Get your current latitude and longitude."
+                FontSize="16"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center" />
+
+            <Button
+                Text="Get My Location"
+                Clicked="OnGetLocationClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
