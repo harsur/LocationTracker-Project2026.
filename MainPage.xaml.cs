@@ -1,3 +1,4 @@
+
 using LocationTracker.Services;
 using LocationTracker.Models;
 
@@ -14,27 +15,30 @@ public partial class MainPage : ContentPage
 
     private async void OnGetLocationClicked(object sender, EventArgs e)
     {
-        var location = await _locationService.GetCurrentLocationAsync();
+        try
+        {
+            var location = await _locationService.TryGetCurrentLocationAsync();
 
-        if (location == null)
+            if (location == null)
+            {
+                await DisplayAlert(
+                    "Location",
+                    "Location unavailable. Please check permissions and device location settings.",
+                    "OK");
+                return;
+            }
+
+            await DisplayAlert(
+                "Current Location",
+                $"Latitude: {location.Latitude}\nLongitude: {location.Longitude}",
+                "OK");
+        }
+        catch (Exception)
         {
             await DisplayAlert(
-                "Location",
-                "Location unavailable. Check permissions and device settings.",
+                "Error",
+                "Unable to retrieve the current location.",
                 "OK");
-            return;
         }
-
-        var record = new LocationRecord
-        {
-            Latitude = location.Latitude,
-            Longitude = location.Longitude,
-            RecordedAt = DateTime.Now
-        };
-
-        await DisplayAlert(
-            "Current Location",
-            $"Latitude: {record.Latitude}\nLongitude: {record.Longitude}",
-            "OK");
     }
 }
