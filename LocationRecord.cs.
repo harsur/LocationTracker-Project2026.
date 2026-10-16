@@ -1,18 +1,17 @@
+
 using SQLite;
 
-namespace LocationTracker.Models
+namespace LocationTracker.Models;
+
+// Represents one location sample stored on the device.
+public class LocationRecord
 {
-    public class LocationRecord
-    {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+    [PrimaryKey, AutoIncrement]
+    public int Id { get; set; }
 
-        public double Latitude { get; set; }
+    public double Latitude { get; set; }
+    public double Longitude { get; set; }
 
-        public double Longitude { get; set; }
-
-        public DateTime RecordedAt { get; set; }
-
-        public string? Description { get; set; }
-    }
+    // Keep timestamps in UTC for consistent ordering.
+    public DateTime CapturedAtUtc { get; set; }
 }
