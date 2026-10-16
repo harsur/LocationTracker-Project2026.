@@ -1,0 +1,17 @@
+# Location Tracker App
+
+**Course:** Final Software Development Project  
+**Institution:** University of the Cumberlands  
+**Technology:** C#, .NET MAUI, SQLite, Maps
+
+## Project Overview
+This project is designed to demonstrate a multiplatform location tracking application. The intended features include requesting foreground location permission, saving location coordinates and timestamps to a local SQLite database, and displaying saved locations on a map.
+
+## Current Status
+The project design and sample C# code are documented in the accompanying assignment report. The complete application build and heat-map functionality still need to be implemented and tested.
+
+## Technologies
+- C#
+- .NET MAUI
+- SQLite
+- .NET MAUI Maps
